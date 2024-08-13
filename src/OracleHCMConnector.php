@@ -6,6 +6,7 @@ use Exception;
 use Saloon\Http\Auth\BasicAuthenticator;
 use Saloon\Http\Connector;
 use Saloon\Traits\Plugins\AcceptsJson;
+
 use function implode;
 
 class OracleHCMConnector extends Connector
@@ -14,6 +15,7 @@ class OracleHCMConnector extends Connector
 
     /**
      * The Base URL of the API
+     *
      * @throws Exception
      */
     public function resolveBaseUrl(): string

@@ -2,9 +2,9 @@
 
 namespace ChrisReedIO\OracleHCM;
 
+use ChrisReedIO\OracleHCM\Commands\OracleHCMCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use ChrisReedIO\OracleHCM\Commands\OracleHCMCommand;
 
 class OracleHCMServiceProvider extends PackageServiceProvider
 {
@@ -18,8 +18,8 @@ class OracleHCMServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-oracle-hcm')
             ->hasConfigFile();
-            // ->hasViews()
-            // ->hasMigration('create_laravel_oracle_hcm_table')
-            // ->hasCommand(OracleHCMCommand::class);
+        // ->hasViews()
+        // ->hasMigration('create_laravel_oracle_hcm_table')
+        // ->hasCommand(OracleHCMCommand::class);
     }
 }
