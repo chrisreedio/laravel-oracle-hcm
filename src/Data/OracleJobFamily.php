@@ -9,7 +9,7 @@ use function tap;
 
 readonly class OracleJobFamily extends OracleData
 {
-    use HasLinks;
+    // use HasLinks;
 
     public function __construct(
         public int $oracle_id,
@@ -20,10 +20,15 @@ readonly class OracleJobFamily extends OracleData
 
     public static function fromArray(array $data): self
     {
-        return tap(new self(
+        // return tap(new self(
+        //     oracle_id: $data['JobFamilyId'],
+        //     name: $data['JobFamilyName'],
+        //     is_active: $data['ActiveStatus'] === 'A',
+        // ), fn (self $instance) => $instance->setLinks($data['links']));
+        return new OracleJobFamily(
             oracle_id: $data['JobFamilyId'],
             name: $data['JobFamilyName'],
-            is_active: $data['ActiveStatus'] === 'A',
-        ), fn (self $instance) => $instance->setLinks($data['links']));
+            is_active: $data['ActiveStatus'] === 'A'
+        );
     }
 }
