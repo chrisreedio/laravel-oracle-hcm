@@ -17,9 +17,9 @@ class OracleHCMServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-oracle-hcm')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel_oracle_hcm_table')
-            ->hasCommand(OracleHCMCommand::class);
+            ->hasConfigFile();
+            // ->hasViews()
+            // ->hasMigration('create_laravel_oracle_hcm_table')
+            // ->hasCommand(OracleHCMCommand::class);
     }
 }
