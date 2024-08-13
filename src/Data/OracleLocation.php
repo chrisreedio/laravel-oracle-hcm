@@ -15,8 +15,7 @@ readonly class OracleLocation extends OracleData
         public string $full_address,
         public string $start_date,
         public string $end_date,
-    ) {
-    }
+    ) {}
 
     public static function fromArray(array $data): self
     {
