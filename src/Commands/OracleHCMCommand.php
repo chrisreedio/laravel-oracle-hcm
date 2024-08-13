@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace ChrisReedIO\OracleHCM\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class OracleHCMCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-oracle-hcm';
 
     public $description = 'My command';
 
