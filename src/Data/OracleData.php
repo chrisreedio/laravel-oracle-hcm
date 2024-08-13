@@ -2,8 +2,6 @@
 
 namespace ChrisReedIO\OracleHCM\Data;
 
-use Illuminate\Support\Collection;
-
 abstract readonly class OracleData
 {
     public int $oracle_id;
