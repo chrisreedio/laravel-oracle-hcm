@@ -84,7 +84,8 @@ class OracleHCMConnector extends Connector implements HasPagination
 
             protected function getPageItems(Response $response, Request $request): array
             {
-                return $response->json('items');
+                // return $response->json('items');
+                return $response->dto();
             }
         };
     }
