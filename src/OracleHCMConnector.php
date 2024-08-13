@@ -79,7 +79,7 @@ class OracleHCMConnector extends Connector implements HasPagination
             protected function isLastPage(Response $response): bool
             {
                 // return $this->getOffset() >= (int) $response->json('total');
-                return $this->json('hasMore') === false;
+                return $response->json('hasMore') === false;
             }
 
             protected function getPageItems(Response $response, Request $request): array
