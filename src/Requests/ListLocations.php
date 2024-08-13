@@ -3,12 +3,13 @@
 namespace ChrisReedIO\OracleHCM\Requests;
 
 use ChrisReedIO\OracleHCM\Data\OracleJobFamily;
+use ChrisReedIO\OracleHCM\Data\OracleLocation;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
 
-class ListRecruitingJobFamilies extends Request implements Paginatable
+class ListLocations extends Request implements Paginatable
 {
     /**
      * The HTTP method of the request
@@ -20,11 +21,11 @@ class ListRecruitingJobFamilies extends Request implements Paginatable
      */
     public function resolveEndpoint(): string
     {
-        return '/recruitingJobFamilies';
+        return '/locationsLov';
     }
 
     public function createDtoFromResponse(Response $response): array
     {
-        return array_map(fn ($item) => OracleJobFamily::fromArray($item), $response->json('items'));
+        return array_map(fn ($item) => OracleLocation::fromArray($item), $response->json('items'));
     }
 }
