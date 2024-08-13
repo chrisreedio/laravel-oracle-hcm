@@ -11,8 +11,7 @@ readonly class OracleLink extends OracleData
         public string $href,
         public string $name,
         public string $kind,
-    ) {
-    }
+    ) {}
 
     public static function fromArray(array $data): OracleData
     {

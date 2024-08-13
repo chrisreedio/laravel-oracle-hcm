@@ -4,11 +4,12 @@ namespace ChrisReedIO\OracleHCM\Data\Traits;
 
 use ChrisReedIO\OracleHCM\Data\OracleLink;
 use ChrisReedIO\OracleHCM\Enums\LinkType;
+
 use function array_map;
 
 trait HasLinks
 {
-    /** @var array<OracleLink> $links */
+    /** @var array<OracleLink> */
     protected readonly array $links;
 
     /** Direct Link to Oracle for this item */

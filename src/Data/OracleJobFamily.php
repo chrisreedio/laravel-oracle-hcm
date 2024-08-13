@@ -2,9 +2,8 @@
 
 namespace ChrisReedIO\OracleHCM\Data;
 
-use ChrisReedIO\OracleHCM\Data\OracleData;
 use ChrisReedIO\OracleHCM\Data\Traits\HasLinks;
-use Illuminate\Support\Collection;
+
 use function tap;
 
 readonly class OracleJobFamily extends OracleData
@@ -15,8 +14,7 @@ readonly class OracleJobFamily extends OracleData
         public int $oracle_id,
         public string $name,
         public bool $is_active,
-    ) {
-    }
+    ) {}
 
     public static function fromArray(array $data): self
     {
