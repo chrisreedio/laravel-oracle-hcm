@@ -5,11 +5,15 @@ namespace ChrisReedIO\OracleHCM;
 use Exception;
 use Saloon\Http\Auth\BasicAuthenticator;
 use Saloon\Http\Connector;
+use Saloon\Http\Request;
+use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\HasPagination;
+use Saloon\PaginationPlugin\OffsetPaginator;
 use Saloon\Traits\Plugins\AcceptsJson;
 
 use function implode;
 
-class OracleHCMConnector extends Connector
+class OracleHCMConnector extends Connector implements HasPagination
 {
     use AcceptsJson;
 
@@ -64,5 +68,24 @@ class OracleHCMConnector extends Connector
         }
 
         return new BasicAuthenticator($username, $password);
+    }
+
+    public function paginate(Request $request): OffsetPaginator
+    {
+        return new class(connector: $this, request: $request) extends OffsetPaginator
+        {
+            protected ?int $perPageLimit = 25;
+
+            protected function isLastPage(Response $response): bool
+            {
+                // return $this->getOffset() >= (int) $response->json('total');
+                return $this->json('hasMore') === false;
+            }
+
+            protected function getPageItems(Response $response, Request $request): array
+            {
+                return $response->json('items');
+            }
+        };
     }
 }

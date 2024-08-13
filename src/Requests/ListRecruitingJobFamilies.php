@@ -4,8 +4,9 @@ namespace ChrisReedIO\OracleHCM\Requests;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
-class ListRecruitingJobFamilies extends Request
+class ListRecruitingJobFamilies extends Request implements Paginatable
 {
     /**
      * The HTTP method of the request
