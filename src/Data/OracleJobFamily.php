@@ -2,10 +2,6 @@
 
 namespace ChrisReedIO\OracleHCM\Data;
 
-use ChrisReedIO\OracleHCM\Data\Traits\HasLinks;
-
-use function tap;
-
 readonly class OracleJobFamily extends OracleData
 {
     // use HasLinks;

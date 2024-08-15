@@ -70,6 +70,13 @@ class OracleHCMConnector extends Connector implements HasPagination
         return new BasicAuthenticator($username, $password);
     }
 
+    protected function defaultQuery(): array
+    {
+        return [
+            'totalResults' => true,
+        ];
+    }
+
     public function paginate(Request $request): OffsetPaginator
     {
         return new class(connector: $this, request: $request) extends OffsetPaginator
