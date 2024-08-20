@@ -4,6 +4,7 @@ namespace ChrisReedIO\OracleHCM;
 
 use ChrisReedIO\OracleHCM\Enums\OracleAPI;
 use ChrisReedIO\OracleHCM\Resources\HCM\HCMLookups;
+use ChrisReedIO\OracleHCM\Resources\HCM\Workers;
 use Saloon\Traits\Plugins\AcceptsJson;
 
 class OracleHCMConnector extends BaseOracleConnector
@@ -18,5 +19,10 @@ class OracleHCMConnector extends BaseOracleConnector
     public function lookups(): HCMLookups
     {
         return new HCMLookups($this);
+    }
+
+    public function workers(): Workers
+    {
+        return new Workers($this);
     }
 }

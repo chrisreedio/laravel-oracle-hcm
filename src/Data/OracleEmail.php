@@ -30,7 +30,7 @@ readonly class OracleEmail extends OracleData
             to_date: $data['ToDate'],
             primary: $data['PrimaryFlag'],
             created_at: $data['CreationDate'],
-            updated_by: $data['LastUpdateBu'],
+            updated_by: $data['LastUpdatedBy'],
             updated_at: $data['LastUpdateDate'],
         );
     }

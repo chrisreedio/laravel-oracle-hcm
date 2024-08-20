@@ -85,7 +85,7 @@ class BaseOracleConnector extends Connector implements HasPagination
     {
         return new class(connector: $this, request: $request) extends OffsetPaginator
         {
-            protected ?int $perPageLimit = 25;
+            protected ?int $perPageLimit = 50;
 
             protected function isLastPage(Response $response): bool
             {
@@ -97,6 +97,11 @@ class BaseOracleConnector extends Connector implements HasPagination
             {
                 // return $response->json('items');
                 return $response->dto();
+            }
+
+            protected function getTotalPages(Response $response): int
+            {
+                return $response->json('totalResults');
             }
         };
     }

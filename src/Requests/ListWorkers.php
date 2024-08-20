@@ -3,6 +3,7 @@
 namespace ChrisReedIO\OracleHCM\Requests;
 
 use ChrisReedIO\OracleHCM\Data\OracleLocation;
+use ChrisReedIO\OracleHCM\Data\OraclePerson;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -26,15 +27,17 @@ class ListWorkers extends Request implements Paginatable
     protected function defaultQuery(): array
     {
         return [
-            'onlyData' => true,
+            'onlyData' => 'true',
+            'totalResults' => 'true',
             // 'expand' => 'all',
-            'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships',
-            // 'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships,photos',
+            'limit' => 200,
+            'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments',
+            // 'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments,photos',
         ];
     }
 
-    // public function createDtoFromResponse(Response $response): array
-    // {
-    //     return array_map(fn ($item) => OracleLocation::fromArray($item), $response->json('items'));
-    // }
+    public function createDtoFromResponse(Response $response): array
+    {
+        return array_map(fn ($item) => OraclePerson::fromArray($item), $response->json('items'));
+    }
 }
