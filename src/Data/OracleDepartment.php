@@ -2,7 +2,6 @@
 
 namespace ChrisReedIO\OracleHCM\Data;
 
-use ChrisReedIO\OracleHCM\Data\OracleData;
 use ChrisReedIO\OracleHCM\Data\Traits\HasOracleID;
 
 readonly class OracleDepartment extends OracleData

@@ -3,6 +3,7 @@
 namespace ChrisReedIO\OracleHCM\Data;
 
 use ChrisReedIO\OracleHCM\Data\Traits\HasOracleID;
+
 use function array_key_exists;
 
 readonly class OraclePerson extends OracleData

@@ -2,7 +2,6 @@
 
 namespace ChrisReedIO\OracleHCM\Requests;
 
-use ChrisReedIO\OracleHCM\Data\OracleLocation;
 use ChrisReedIO\OracleHCM\Data\OracleLookupValue;
 use ChrisReedIO\OracleHCM\Enums\LookupType;
 use Saloon\Enums\Method;
