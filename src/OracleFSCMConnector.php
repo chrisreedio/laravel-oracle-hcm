@@ -3,7 +3,6 @@
 namespace ChrisReedIO\OracleHCM;
 
 use ChrisReedIO\OracleHCM\Enums\OracleAPI;
-use ChrisReedIO\OracleHCM\OracleHCMConnector;
 use ChrisReedIO\OracleHCM\Resources\Lookups;
 
 class OracleFSCMConnector extends OracleHCMConnector
