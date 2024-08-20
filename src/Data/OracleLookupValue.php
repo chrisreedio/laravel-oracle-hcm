@@ -12,9 +12,7 @@ readonly class OracleLookupValue extends OracleData
         public ?string $meaning = null,
         public ?string $description = null,
         // TODO: Tag, LegislationCode
-    )
-    {
-    }
+    ) {}
 
     public static function fromArray(array $data): OracleData
     {

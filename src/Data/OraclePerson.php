@@ -13,14 +13,13 @@ readonly class OraclePerson extends OracleData
         public string $person_number,
         public string $birth_date,
         public string $created_at,
-        public ?string $death_date = null,
-        public ?string $updated_by = null,
-        public ?string $updated_at = null,
+        public ?string $death_date,
+        public ?string $updated_by,
+        public ?string $updated_at,
 
         /** public array<OracleEmail> $emails **/
         public array $emails,
-    ) {
-    }
+    ) {}
 
     public static function fromArray(array $data): self
     {

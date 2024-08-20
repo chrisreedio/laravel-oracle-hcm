@@ -11,6 +11,7 @@ class Lookups extends Resource
     public function common(LookupType $type): LazyCollection
     {
         $results = $this->connector->paginate(new ListCommonLookups($type));
+
         return $results->collect();
     }
 

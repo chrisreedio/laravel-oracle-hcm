@@ -3,7 +3,6 @@
 namespace ChrisReedIO\OracleHCM\Resources;
 
 use ChrisReedIO\OracleHCM\OracleHCMConnector;
-use Saloon\Http\BaseResource;
 
 class Resource
 {

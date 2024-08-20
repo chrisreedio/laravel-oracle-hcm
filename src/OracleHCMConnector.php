@@ -3,7 +3,6 @@
 namespace ChrisReedIO\OracleHCM;
 
 use ChrisReedIO\OracleHCM\Enums\OracleAPI;
-use ChrisReedIO\OracleHCM\Resources\Lookups;
 use Exception;
 use Saloon\Http\Auth\BasicAuthenticator;
 use Saloon\Http\Connector;
@@ -19,9 +18,7 @@ class OracleHCMConnector extends Connector implements HasPagination
 {
     use AcceptsJson;
 
-    public function __construct(protected OracleAPI $api = OracleAPI::HCM)
-    {
-    }
+    public function __construct(protected OracleAPI $api = OracleAPI::HCM) {}
 
     /**
      * The Base URL of the API
@@ -103,6 +100,4 @@ class OracleHCMConnector extends Connector implements HasPagination
             }
         };
     }
-
-
 }

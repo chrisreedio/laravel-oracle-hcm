@@ -17,9 +17,7 @@ class ListCommonLookups extends Request implements Paginatable
      */
     protected Method $method = Method::GET;
 
-    public function __construct(protected LookupType $type)
-    {
-    }
+    public function __construct(protected LookupType $type) {}
 
     /**
      * The endpoint for the request
