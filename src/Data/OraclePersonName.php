@@ -10,9 +10,9 @@ readonly class OraclePersonName extends OracleData
 
     public function __construct(
         public ?int $oracle_id,
-        public string $first_name,
+        public ?string $first_name,
         public ?string $middle_name,
-        public string $last_name,
+        public ?string $last_name,
         public string $start_date,
         public ?string $end_date,
         public bool $is_active,

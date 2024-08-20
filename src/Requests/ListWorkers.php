@@ -30,7 +30,7 @@ class ListWorkers extends Request implements Paginatable
             'onlyData' => 'true',
             'totalResults' => 'true',
             // 'expand' => 'all',
-            'limit' => 200,
+            // 'limit' => 200,
             'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments',
             // 'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments,photos',
         ];

@@ -11,6 +11,7 @@ use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\HasPagination;
 use Saloon\PaginationPlugin\OffsetPaginator;
 use Saloon\Traits\Plugins\AcceptsJson;
+use function ceil;
 use function config;
 use function implode;
 
@@ -101,7 +102,7 @@ class BaseOracleConnector extends Connector implements HasPagination
 
             protected function getTotalPages(Response $response): int
             {
-                return $response->json('totalResults');
+                return ceil($response->json('totalResults') / $this->perPageLimit);
             }
         };
     }
