@@ -2,7 +2,6 @@
 
 namespace ChrisReedIO\OracleHCM\Requests;
 
-use ChrisReedIO\OracleHCM\Data\OracleLocation;
 use ChrisReedIO\OracleHCM\Data\OraclePerson;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

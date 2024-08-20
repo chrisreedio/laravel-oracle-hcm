@@ -16,8 +16,7 @@ readonly class OraclePersonName extends OracleData
         public string $start_date,
         public ?string $end_date,
         public bool $is_active,
-    ) {
-    }
+    ) {}
 
     public static function fromArray(array $data): self
     {
@@ -25,6 +24,7 @@ readonly class OraclePersonName extends OracleData
         if ($endDate === '4712-12-31') {
             $endDate = null;
         }
+
         return new OraclePersonName(
             oracle_id: $data['PersonNameId'] ?? null,
             first_name: $data['FirstName'],

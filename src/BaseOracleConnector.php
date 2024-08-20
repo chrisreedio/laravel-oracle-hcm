@@ -11,6 +11,7 @@ use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\HasPagination;
 use Saloon\PaginationPlugin\OffsetPaginator;
 use Saloon\Traits\Plugins\AcceptsJson;
+
 use function config;
 use function implode;
 
