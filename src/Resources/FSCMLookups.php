@@ -6,7 +6,7 @@ use ChrisReedIO\OracleHCM\Enums\LookupType;
 use ChrisReedIO\OracleHCM\Requests\ListCommonLookups;
 use Illuminate\Support\LazyCollection;
 
-class Lookups extends Resource
+class FSCMLookups extends Resource
 {
     public function common(LookupType $type): LazyCollection
     {

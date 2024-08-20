@@ -3,6 +3,8 @@
 namespace ChrisReedIO\OracleHCM;
 
 use ChrisReedIO\OracleHCM\Enums\OracleAPI;
+use ChrisReedIO\OracleHCM\Resources\FSCMLookups;
+use ChrisReedIO\OracleHCM\Resources\HCMLookups;
 use Exception;
 use Saloon\Http\Auth\BasicAuthenticator;
 use Saloon\Http\Connector;
@@ -99,5 +101,10 @@ class OracleHCMConnector extends Connector implements HasPagination
                 return $response->dto();
             }
         };
+    }
+
+    public function lookups(): HCMLookups
+    {
+        return new HCMLookups($this);
     }
 }

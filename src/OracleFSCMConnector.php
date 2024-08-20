@@ -3,7 +3,7 @@
 namespace ChrisReedIO\OracleHCM;
 
 use ChrisReedIO\OracleHCM\Enums\OracleAPI;
-use ChrisReedIO\OracleHCM\Resources\Lookups;
+use ChrisReedIO\OracleHCM\Resources\FSCMLookups;
 
 class OracleFSCMConnector extends OracleHCMConnector
 {
@@ -12,8 +12,8 @@ class OracleFSCMConnector extends OracleHCMConnector
         parent::__construct($api);
     }
 
-    public function lookups(): Lookups
+    public function lookups(): FSCMLookups
     {
-        return new Lookups($this);
+        return new FSCMLookups($this);
     }
 }
