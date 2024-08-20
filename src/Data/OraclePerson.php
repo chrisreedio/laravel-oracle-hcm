@@ -2,10 +2,14 @@
 
 namespace ChrisReedIO\OracleHCM\Data;
 
+use ChrisReedIO\OracleHCM\Data\Traits\HasOracleID;
+
 readonly class OraclePerson extends OracleData
 {
+    use HasOracleID;
+
     public function __construct(
-        public int $oracle_id,
+        public ?int $oracle_id,
         public string $person_number,
         public string $birth_date,
         public string $created_at,
@@ -21,7 +25,7 @@ readonly class OraclePerson extends OracleData
     public static function fromArray(array $data): self
     {
         return new OraclePerson(
-            oracle_id: $data['PersonId'],
+            oracle_id: $data['PersonId'] ?? null,
             person_number: $data['PersonNumber'],
             birth_date: $data['DateOfBirth'],
             created_at: $data['CreationDate'],

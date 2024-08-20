@@ -2,8 +2,12 @@
 
 namespace ChrisReedIO\OracleHCM\Data;
 
+use ChrisReedIO\OracleHCM\Data\Traits\HasOracleID;
+
 readonly class OracleEmail extends OracleData
 {
+    use HasOracleID;
+
     public function __construct(
         public string $type,
         public string $address,

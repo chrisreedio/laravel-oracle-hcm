@@ -2,6 +2,8 @@
 
 namespace ChrisReedIO\OracleHCM;
 
+use ChrisReedIO\OracleHCM\Enums\OracleAPI;
+use ChrisReedIO\OracleHCM\Resources\Lookups;
 use Exception;
 use Saloon\Http\Auth\BasicAuthenticator;
 use Saloon\Http\Connector;
@@ -16,6 +18,10 @@ use function implode;
 class OracleHCMConnector extends Connector implements HasPagination
 {
     use AcceptsJson;
+
+    public function __construct(protected OracleAPI $api = OracleAPI::HCM)
+    {
+    }
 
     /**
      * The Base URL of the API
@@ -33,7 +39,8 @@ class OracleHCMConnector extends Connector implements HasPagination
 
         return implode('/', [
             'https://'.$baseUrl,
-            'hcmRestApi',
+            // 'hcmRestApi',
+            $this->api->value,
             'resources',
             $version,
         ]);
@@ -73,7 +80,7 @@ class OracleHCMConnector extends Connector implements HasPagination
     protected function defaultQuery(): array
     {
         return [
-            'totalResults' => true,
+            // 'totalResults' => 'true',
         ];
     }
 
@@ -96,4 +103,6 @@ class OracleHCMConnector extends Connector implements HasPagination
             }
         };
     }
+
+
 }

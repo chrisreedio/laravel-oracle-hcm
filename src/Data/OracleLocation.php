@@ -2,10 +2,14 @@
 
 namespace ChrisReedIO\OracleHCM\Data;
 
+use ChrisReedIO\OracleHCM\Data\Traits\HasOracleID;
+
 readonly class OracleLocation extends OracleData
 {
+    use HasOracleID;
+
     public function __construct(
-        public int $oracle_id,
+        public ?int $oracle_id,
         public string $oracle_code,
         public string $name,
         public bool $is_active,
@@ -21,7 +25,7 @@ readonly class OracleLocation extends OracleData
     public static function fromArray(array $data): self
     {
         return new OracleLocation(
-            oracle_id: $data['LocationId'],
+            oracle_id: $data['LocationId'] ?? null,
             oracle_code: $data['LocationCode'],
             name: $data['LocationName'],
             is_active: $data['ActiveStatus'] === 'A',
