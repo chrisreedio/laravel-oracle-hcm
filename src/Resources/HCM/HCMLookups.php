@@ -1,11 +1,11 @@
 <?php
 
-namespace ChrisReedIO\OracleHCM\Resources;
+namespace ChrisReedIO\OracleHCM\Resources\HCM;
 
 use ChrisReedIO\OracleHCM\Requests\ListDepartments;
 use Illuminate\Support\LazyCollection;
 
-class HCMLookups extends Resource
+class HCMLookups extends BaseHCMResource
 {
     public function departments(): LazyCollection
     {

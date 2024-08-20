@@ -1,12 +1,12 @@
 <?php
 
-namespace ChrisReedIO\OracleHCM\Resources;
+namespace ChrisReedIO\OracleHCM\Resources\FSCM;
 
 use ChrisReedIO\OracleHCM\Enums\LookupType;
 use ChrisReedIO\OracleHCM\Requests\ListCommonLookups;
 use Illuminate\Support\LazyCollection;
 
-class FSCMLookups extends Resource
+class FSCMLookups extends BaseFSCMResource
 {
     public function common(LookupType $type): LazyCollection
     {

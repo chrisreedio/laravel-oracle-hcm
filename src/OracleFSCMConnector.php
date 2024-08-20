@@ -3,9 +3,9 @@
 namespace ChrisReedIO\OracleHCM;
 
 use ChrisReedIO\OracleHCM\Enums\OracleAPI;
-use ChrisReedIO\OracleHCM\Resources\FSCMLookups;
+use ChrisReedIO\OracleHCM\Resources\FSCM\FSCMLookups;
 
-class OracleFSCMConnector extends OracleHCMConnector
+class OracleFSCMConnector extends BaseOracleConnector
 {
     public function __construct(protected OracleAPI $api = OracleAPI::FSCM)
     {

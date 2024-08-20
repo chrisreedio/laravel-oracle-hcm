@@ -1,10 +1,10 @@
 <?php
 
-namespace ChrisReedIO\OracleHCM\Resources;
+namespace ChrisReedIO\OracleHCM\Resources\HCM;
 
 use ChrisReedIO\OracleHCM\OracleHCMConnector;
 
-class Resource
+abstract class BaseHCMResource
 {
     public function __construct(
         readonly protected OracleHCMConnector $connector,
