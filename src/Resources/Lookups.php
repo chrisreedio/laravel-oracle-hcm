@@ -27,5 +27,4 @@ class Lookups extends Resource
     {
         return $this->common(LookupType::ADDRESS_TYPE);
     }
-
 }
