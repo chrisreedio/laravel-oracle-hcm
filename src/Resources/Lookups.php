@@ -10,14 +10,22 @@ class Lookups extends Resource
 {
     public function common(LookupType $type): LazyCollection
     {
-        $results = $this->connector->paginate(new ListCommonLookups($type));
-        return $results->collect();
+        return $this->connector->paginate(new ListCommonLookups($type))->collect();
     }
 
     public function phoneTypes(): LazyCollection
     {
-        return $this->connector
-            ->paginate(new ListCommonLookups(LookupType::PHONE_TYPE))
-            ->collect();
+        return $this->common(LookupType::PHONE_TYPE);
     }
+
+    public function emailTypes(): LazyCollection
+    {
+        return $this->common(LookupType::EMAIL_TYPE);
+    }
+
+    public function addressTypes(): LazyCollection
+    {
+        return $this->common(LookupType::ADDRESS_TYPE);
+    }
+
 }
