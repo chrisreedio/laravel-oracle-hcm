@@ -44,6 +44,7 @@ class GetWorkerPhoto extends Request implements Paginatable
         if (empty($response->json('items'))) {
             return [];
         }
+
         return array_map(fn ($item) => OraclePhoto::fromArray($item), $response->json('items'));
     }
 }

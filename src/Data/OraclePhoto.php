@@ -10,8 +10,7 @@ readonly class OraclePhoto extends OracleData
         public string $type,
         public string $name,
         public string $data,
-    ) {
-    }
+    ) {}
 
     public static function fromArray(array $data): OracleData
     {
