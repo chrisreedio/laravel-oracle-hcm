@@ -27,8 +27,7 @@ readonly class OraclePerson extends OracleData
 
         /** public array<OracleWorkRelationship> $workRelationships */
         public array $workRelationships,
-    ) {
-    }
+    ) {}
 
     public static function fromArray(array $data): self
     {

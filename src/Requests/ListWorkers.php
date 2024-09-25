@@ -15,7 +15,6 @@ class ListWorkers extends Request implements Paginatable
      */
     protected Method $method = Method::GET;
 
-
     public function __construct(
         protected ?string $workerId = null,
     ) {
@@ -31,6 +30,7 @@ class ListWorkers extends Request implements Paginatable
         if ($this->workerId) {
             $path .= '/'.$this->workerId;
         }
+
         return $path;
     }
 

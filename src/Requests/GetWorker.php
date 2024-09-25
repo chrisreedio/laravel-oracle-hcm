@@ -15,7 +15,6 @@ class GetWorker extends Request implements Paginatable
      */
     protected Method $method = Method::GET;
 
-
     public function __construct(
         protected string $workerId,
     ) {
