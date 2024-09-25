@@ -24,7 +24,11 @@ readonly class OraclePerson extends OracleData
 
         /** public array<OraclePersonName> $names */
         public array $names,
-    ) {}
+
+        /** public array<OracleWorkRelationship> $workRelationships */
+        public array $workRelationships,
+    ) {
+    }
 
     public static function fromArray(array $data): self
     {
@@ -36,8 +40,12 @@ readonly class OraclePerson extends OracleData
             death_date: $data['DateOfDeath'] ?? null,
             updated_by: $data['LastUpdatedBy'] ?? null,
             updated_at: $data['LastUpdateDate'] ?? null,
-            emails: array_key_exists('emails', $data) ? array_map(fn ($item) => OracleEmail::fromArray($item), $data['emails']) : [],
-            names: array_key_exists('names', $data) ? array_map(fn ($item) => OraclePersonName::fromArray($item), $data['names']) : [],
+            emails: array_key_exists('emails', $data) ? array_map(fn ($item) => OracleEmail::fromArray($item),
+                $data['emails']) : [],
+            names: array_key_exists('names', $data) ? array_map(fn ($item) => OraclePersonName::fromArray($item),
+                $data['names']) : [],
+            workRelationships: array_key_exists('workRelationships', $data) ? array_map(fn ($item
+            ) => OracleWorkRelationship::fromArray($item), $data['workRelationships']) : [],
         );
     }
 }

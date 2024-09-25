@@ -8,7 +8,7 @@ use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
 
-class ListWorkers extends Request implements Paginatable
+class GetWorker extends Request implements Paginatable
 {
     /**
      * The HTTP method of the request
@@ -17,7 +17,7 @@ class ListWorkers extends Request implements Paginatable
 
 
     public function __construct(
-        protected ?string $workerId = null,
+        protected string $workerId,
     ) {
         //
     }
@@ -27,11 +27,8 @@ class ListWorkers extends Request implements Paginatable
      */
     public function resolveEndpoint(): string
     {
-        $path = '/workers';
-        if ($this->workerId) {
-            $path .= '/'.$this->workerId;
-        }
-        return $path;
+        return '/workers';
+        // return '/workers/'.$this->workerId;
     }
 
     protected function defaultQuery(): array
@@ -43,11 +40,12 @@ class ListWorkers extends Request implements Paginatable
             // 'limit' => 200,
             'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments',
             // 'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments,photos',
+            'q' => 'PersonId='.$this->workerId,
         ];
     }
 
-    public function createDtoFromResponse(Response $response): array
+    public function createDtoFromResponse(Response $response): OraclePerson
     {
-        return array_map(fn ($item) => OraclePerson::fromArray($item), $response->json('items'));
+        return OraclePerson::fromArray($response->json('items')[0]);
     }
 }
