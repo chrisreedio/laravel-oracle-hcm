@@ -15,12 +15,22 @@ class ListWorkers extends Request implements Paginatable
      */
     protected Method $method = Method::GET;
 
+
+    public function __construct(
+        protected ?string $workerId = null,
+    ) {
+    }
+
     /**
      * The endpoint for the request
      */
     public function resolveEndpoint(): string
     {
-        return '/workers';
+        $path = '/workers';
+        if ($this->workerId) {
+            $path .= '/'.$this->workerId;
+        }
+        return $path;
     }
 
     protected function defaultQuery(): array
