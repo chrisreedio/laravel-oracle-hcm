@@ -11,7 +11,9 @@ use Illuminate\Support\Collection;
 readonly class OracleFeedEntryContent extends OracleData
 {
     public function __construct(
+        /** @var Collection<Collection> $context */
         public Collection $context,
+        /** @var Collection<Collection> $changed */
         public Collection $changed,
     ) {}
 
