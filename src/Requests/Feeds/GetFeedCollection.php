@@ -2,6 +2,7 @@
 
 namespace ChrisReedIO\OracleHCM\Requests\Feeds;
 
+use ChrisReedIO\OracleHCM\Data\Feeds\OracleFeed;
 use ChrisReedIO\OracleHCM\Data\OraclePerson;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -39,8 +40,9 @@ class GetFeedCollection extends Request implements Paginatable
         ];
     }
 
-    public function createDtoFromResponse(Response $response): OraclePerson
+    public function createDtoFromResponse(Response $response): OracleFeed
     {
-        dd($response->json());
+        // dd($response->json());
+        return OracleFeed::fromArray($response->json('feed'));
     }
 }
