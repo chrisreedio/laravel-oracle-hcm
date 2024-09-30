@@ -9,8 +9,8 @@ readonly class OracleLink extends OracleData
     public function __construct(
         public LinkType $rel,
         public string $href,
-        public string $name,
-        public string $kind,
+        public ?string $name,
+        public ?string $kind,
     ) {}
 
     public static function fromArray(array $data): OracleData
@@ -18,8 +18,8 @@ readonly class OracleLink extends OracleData
         return new self(
             rel: LinkType::from($data['rel']),
             href: $data['href'],
-            name: $data['name'],
-            kind: $data['kind'],
+            name: $data['name'] ?? null,
+            kind: $data['kind'] ?? null,
         );
     }
 }
