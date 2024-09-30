@@ -5,7 +5,6 @@ namespace ChrisReedIO\OracleHCM;
 use ChrisReedIO\OracleHCM\Enums\OracleAPI;
 use ChrisReedIO\OracleHCM\Traits\HasBasicCiscoAuth;
 use Exception;
-use Saloon\Http\Auth\BasicAuthenticator;
 use Saloon\Http\Connector;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
