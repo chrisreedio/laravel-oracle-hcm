@@ -15,8 +15,7 @@ readonly class EmployeeFeed
 
     /**
      * Generic method to get a feed collection
-     * @param string $collection
-     * @return Response
+     *
      * @throws \Saloon\Exceptions\Request\FatalRequestException
      * @throws \Saloon\Exceptions\Request\RequestException
      */
@@ -33,6 +32,4 @@ readonly class EmployeeFeed
 
         return $this->connector->send($request);
     }
-
-
 }

@@ -3,7 +3,6 @@
 namespace ChrisReedIO\OracleHCM\Requests\Feeds;
 
 use ChrisReedIO\OracleHCM\Data\Feeds\OracleFeed;
-use ChrisReedIO\OracleHCM\Data\OraclePerson;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -19,8 +18,7 @@ class GetFeedCollection extends Request implements Paginatable
     public function __construct(
         protected string $workspace,
         protected string $collection
-    )
-    {
+    ) {
         //
     }
 

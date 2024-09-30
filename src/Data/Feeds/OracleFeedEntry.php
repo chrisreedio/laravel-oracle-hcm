@@ -5,7 +5,6 @@ namespace ChrisReedIO\OracleHCM\Data\Feeds;
 use Carbon\Carbon;
 use ChrisReedIO\OracleHCM\Data\OracleData;
 use ChrisReedIO\OracleHCM\Data\OracleLink;
-use ChrisReedIO\OracleHCM\Enums\LinkType;
 
 readonly class OracleFeedEntry extends OracleData
 {
