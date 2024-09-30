@@ -3,6 +3,7 @@
 namespace ChrisReedIO\OracleHCM\Requests\Feeds;
 
 use ChrisReedIO\OracleHCM\Data\Feeds\OracleFeed;
+use ChrisReedIO\OracleHCM\Enums\WorkspaceType;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -16,9 +17,10 @@ class GetFeedCollection extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     public function __construct(
-        protected string $workspace,
+        protected WorkspaceType $workspace,
         protected string $collection
-    ) {
+    )
+    {
         //
     }
 
@@ -27,20 +29,14 @@ class GetFeedCollection extends Request implements Paginatable
      */
     public function resolveEndpoint(): string
     {
-        return "/atomservlet/{$this->workspace}/{$this->collection}";
+        return "/atomservlet/{$this->workspace->value}/{$this->collection}";
         // return '/workers/'.$this->workerId;
-    }
-
-    protected function defaultQuery(): array
-    {
-        return [
-            //
-        ];
     }
 
     public function createDtoFromResponse(Response $response): OracleFeed
     {
-        // dd($response->json());
+        // dump('DTO Conversion!', $response->json('feed'));
+
         return OracleFeed::fromArray($response->json('feed'));
     }
 }

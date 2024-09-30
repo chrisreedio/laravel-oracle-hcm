@@ -2,15 +2,19 @@
 
 namespace ChrisReedIO\OracleHCM\Resources\Feeds;
 
+use ChrisReedIO\OracleHCM\Enums\WorkspaceType;
 use ChrisReedIO\OracleHCM\OracleFeeds;
 use ChrisReedIO\OracleHCM\Requests\Feeds\GetFeedCollection;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\PagedPaginator;
 
 readonly class EmployeeFeed
 {
+    protected WorkspaceType $workspace;
+
     public function __construct(protected OracleFeeds $connector)
     {
-        //
+        $this->workspace = WorkspaceType::Employee;
     }
 
     /**
@@ -21,15 +25,15 @@ readonly class EmployeeFeed
      */
     public function get(string $collection): Response
     {
-        $request = new GetFeedCollection('employee', $collection);
+        $request = new GetFeedCollection($this->workspace, $collection);
 
         return $this->connector->send($request);
     }
 
-    public function updates(): Response
+    public function updates(): PagedPaginator
     {
-        $request = new GetFeedCollection('employee', 'empupdate');
+        $request = new GetFeedCollection($this->workspace, 'empupdate');
 
-        return $this->connector->send($request);
+        return $this->connector->paginate($request);
     }
 }

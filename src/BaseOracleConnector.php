@@ -3,6 +3,7 @@
 namespace ChrisReedIO\OracleHCM;
 
 use ChrisReedIO\OracleHCM\Enums\OracleAPI;
+use ChrisReedIO\OracleHCM\Traits\HasBasicCiscoAuth;
 use Exception;
 use Saloon\Http\Auth\BasicAuthenticator;
 use Saloon\Http\Connector;
@@ -18,7 +19,7 @@ use function implode;
 
 class BaseOracleConnector extends Connector implements HasPagination
 {
-    use AcceptsJson;
+    use AcceptsJson, HasBasicCiscoAuth;
 
     public function __construct(protected OracleAPI $api = OracleAPI::HCM) {}
 
@@ -43,44 +44,6 @@ class BaseOracleConnector extends Connector implements HasPagination
             'resources',
             $version,
         ]);
-    }
-
-    /**
-     * Default headers for every request
-     */
-    protected function defaultHeaders(): array
-    {
-        return [];
-    }
-
-    /**
-     * Default HTTP client options
-     */
-    protected function defaultConfig(): array
-    {
-        return [];
-    }
-
-    /**
-     * @throws Exception
-     */
-    protected function defaultAuth(): BasicAuthenticator
-    {
-        $username = config('oracle-hcm.username');
-        $password = config('oracle-hcm.password');
-
-        if (empty($username) || empty($password)) {
-            throw new \Exception('Oracle HCM username and password must be set in the config');
-        }
-
-        return new BasicAuthenticator($username, $password);
-    }
-
-    protected function defaultQuery(): array
-    {
-        return [
-            // 'totalResults' => 'true',
-        ];
     }
 
     public function paginate(Request $request): OffsetPaginator
