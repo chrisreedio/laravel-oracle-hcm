@@ -10,12 +10,10 @@ use Saloon\Http\Connector;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\HasPagination;
-use Saloon\PaginationPlugin\OffsetPaginator;
 use Saloon\PaginationPlugin\PagedPaginator;
 use Saloon\Traits\Plugins\AcceptsJson;
 
 use function config;
-use function implode;
 
 class OracleFeeds extends Connector implements HasPagination
 {
@@ -81,5 +79,4 @@ class OracleFeeds extends Connector implements HasPagination
             }
         };
     }
-
 }

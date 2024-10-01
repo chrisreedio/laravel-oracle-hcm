@@ -19,8 +19,7 @@ class GetFeedCollection extends Request implements Paginatable
     public function __construct(
         protected WorkspaceType $workspace,
         protected string $collection
-    )
-    {
+    ) {
         //
     }
 
