@@ -35,4 +35,9 @@ abstract readonly class BaseFeedResource
     {
         return new GetFeedCollection($this->workspace, $collection);
     }
+
+    protected function sendRequest(string $collection): PagedPaginator
+    {
+        return $this->connector->paginate($this->makeRequest($collection));
+    }
 }

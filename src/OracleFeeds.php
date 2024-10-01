@@ -51,7 +51,7 @@ class OracleFeeds extends Connector implements HasPagination
     {
         return new class(connector: $this, request: $request) extends PagedPaginator
         {
-            protected ?int $perPageLimit = 5;
+            protected ?int $perPageLimit = 15;
 
             protected function isLastPage(Response $response): bool
             {
