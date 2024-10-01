@@ -8,6 +8,7 @@ use ChrisReedIO\OracleHCM\Requests\Feeds\GetFeedCollection;
 use Saloon\Exceptions\Request\FatalRequestException;
 use Saloon\Exceptions\Request\RequestException;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\PagedPaginator;
 
 abstract readonly class BaseFeedResource
 {
