@@ -24,7 +24,7 @@ class GetFeedCollection extends Request implements Paginatable
         // $workspaceName = $workspace->value;
         // $curCollection = $collection;
         $this->middleware()
-            ->onRequest(static function (PendingRequest $request) use ($workspace, $collection) {
+            ->onRequest(static function (PendingRequest $request) use ($collection) {
                 $cacheKey = self::generateCacheKey($this->workspace, $collection);
                 $lastQueryTime = cache($cacheKey);
                 if ($lastQueryTime) {

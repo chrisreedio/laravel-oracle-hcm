@@ -3,7 +3,6 @@
 namespace ChrisReedIO\OracleHCM;
 
 use ChrisReedIO\OracleHCM\Data\Feeds\OracleFeed;
-use ChrisReedIO\OracleHCM\Enums\OracleAPI;
 use ChrisReedIO\OracleHCM\Resources\Feeds\EmployeeFeed;
 use ChrisReedIO\OracleHCM\Traits\HasBasicCiscoAuth;
 use Saloon\Http\Connector;
@@ -14,7 +13,6 @@ use Saloon\PaginationPlugin\PagedPaginator;
 use Saloon\Traits\Plugins\AcceptsJson;
 
 use function config;
-use function implode;
 
 class OracleFeeds extends Connector implements HasPagination
 {
