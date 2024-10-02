@@ -14,12 +14,13 @@ use Saloon\PaginationPlugin\PagedPaginator;
 use Saloon\Traits\Plugins\AcceptsJson;
 
 use function config;
+use function implode;
 
 class OracleFeeds extends Connector implements HasPagination
 {
     use AcceptsJson, HasBasicCiscoAuth;
 
-    public function __construct(protected OracleAPI $api = OracleAPI::HCM)
+    public function __construct()
     {
         //
     }

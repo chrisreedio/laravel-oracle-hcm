@@ -5,9 +5,12 @@ namespace ChrisReedIO\OracleHCM\Requests\Feeds;
 use ChrisReedIO\OracleHCM\Data\Feeds\OracleFeed;
 use ChrisReedIO\OracleHCM\Enums\WorkspaceType;
 use Saloon\Enums\Method;
+use Saloon\Http\PendingRequest;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
+
+use function cache;
 
 class GetFeedCollection extends Request implements Paginatable
 {
@@ -16,11 +19,19 @@ class GetFeedCollection extends Request implements Paginatable
      */
     protected Method $method = Method::GET;
 
-    public function __construct(
-        protected WorkspaceType $workspace,
-        protected string $collection
-    ) {
-        //
+    public function __construct(protected WorkspaceType $workspace, protected string $collection)
+    {
+        // $workspaceName = $workspace->value;
+        // $curCollection = $collection;
+        $this->middleware()
+            ->onRequest(static function (PendingRequest $request) use ($workspace, $collection) {
+                $cacheKey = self::generateCacheKey($this->workspace, $collection);
+                $lastQueryTime = cache($cacheKey);
+                if ($lastQueryTime) {
+                    $request->query()->add('updated-min', $lastQueryTime);
+                }
+                cache([$cacheKey => now()->toIso8601String()]);
+            });
     }
 
     /**
@@ -37,5 +48,20 @@ class GetFeedCollection extends Request implements Paginatable
         // dump('DTO Conversion!', $response->json('feed'));
 
         return OracleFeed::fromArray($response->json('feed'));
+    }
+
+    public static function generateCacheKey(WorkspaceType $workspace, string $collection): string
+    {
+        return implode(':', [
+            'oracle',
+            'feeds',
+            $workspace->value,
+            $collection,
+        ]);
+    }
+
+    public static function clearCache(WorkspaceType $workspace, string $collection): void
+    {
+        cache()->forget(self::generateCacheKey($workspace, $collection));
     }
 }

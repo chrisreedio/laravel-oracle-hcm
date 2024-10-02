@@ -10,7 +10,7 @@ use function array_key_exists;
 readonly class OracleFeedEntryContent extends OracleData
 {
     public function __construct(
-        /** @var Collection<Collection> $context */
+        /** @var Collection<string, string> $context */
         public Collection $context,
         /** @var Collection<Collection> $changed */
         public Collection $changed,
@@ -21,7 +21,7 @@ readonly class OracleFeedEntryContent extends OracleData
     public static function fromArray(array $data): self
     {
         return new self(
-            context: collect($data['Context'])->map(fn (array $item) => collect($item)),
+            context: collect($data['Context'][0]),
             changed: array_key_exists('Changed Attributes', $data)
                 ? collect($data['Changed Attributes'])->map(fn (array $item) => collect($item))
                 : collect(),

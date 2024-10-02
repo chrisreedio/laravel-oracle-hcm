@@ -40,4 +40,14 @@ abstract readonly class BaseFeedResource
     {
         return $this->connector->paginate($this->makeRequest($collection));
     }
+
+    public function getCacheKey(string $collection): string
+    {
+        return implode(':', [
+            'oracle',
+            'feeds',
+            $this->workspace->value,
+            $collection,
+        ]);
+    }
 }
