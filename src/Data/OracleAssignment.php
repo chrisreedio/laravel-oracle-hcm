@@ -4,6 +4,8 @@ namespace ChrisReedIO\OracleHCM\Data;
 
 use ChrisReedIO\OracleHCM\Data\Traits\HasOracleID;
 
+use function array_key_exists;
+
 readonly class OracleAssignment extends OracleData
 {
     use HasOracleID;
@@ -92,7 +94,9 @@ readonly class OracleAssignment extends OracleData
         public ?string $creation_date,
         public ?string $last_updated_by,
         public ?string $last_update_date,
-    ) {
+        public ?array $managers,
+    )
+    {
         //
     }
 
@@ -182,6 +186,10 @@ readonly class OracleAssignment extends OracleData
             creation_date: $data['CreationDate'] ?? null,
             last_updated_by: $data['LastUpdatedBy'] ?? null,
             last_update_date: $data['LastUpdateDate'] ?? null,
+            managers: array_key_exists('managers', $data)
+                ? collect($data['managers'])
+                    ->map(fn (array $managerData) => OracleManager::fromArray($managerData))
+                : null,
         );
     }
 }
