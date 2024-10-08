@@ -96,8 +96,7 @@ readonly class OracleAssignment extends OracleData
         public ?string $last_update_date,
         public ?array $managers,
         public ?array $allReports,
-    )
-    {
+    ) {
         //
     }
 

@@ -2,8 +2,6 @@
 
 namespace ChrisReedIO\OracleHCM\Data;
 
-use ChrisReedIO\OracleHCM\Enums\LinkType;
-
 readonly class OracleAssignmentReport extends OracleData
 {
     public function __construct(

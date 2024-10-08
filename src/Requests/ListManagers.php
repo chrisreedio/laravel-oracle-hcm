@@ -48,6 +48,7 @@ class ListManagers extends Request implements Paginatable
     {
         // dd($response->json('items')[0]);
         dd($response->json());
+
         return OraclePerson::fromArray($response->json('items')[0]);
     }
 }
