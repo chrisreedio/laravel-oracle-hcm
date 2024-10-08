@@ -41,7 +41,9 @@ class ListWorkers extends Request implements Paginatable
             'totalResults' => 'true',
             // 'expand' => 'all',
             // 'limit' => 200,
-            'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments',
+            // 'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments.managers',
+            'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments.managers,workRelationships.assignments.allReports',
+            // 'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments.allReports',
             // 'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments,photos',
         ];
     }

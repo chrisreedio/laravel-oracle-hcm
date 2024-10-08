@@ -95,6 +95,7 @@ readonly class OracleAssignment extends OracleData
         public ?string $last_updated_by,
         public ?string $last_update_date,
         public ?array $managers,
+        public ?array $allReports,
     ) {
         //
     }
@@ -188,6 +189,12 @@ readonly class OracleAssignment extends OracleData
             managers: array_key_exists('managers', $data)
                 ? collect($data['managers'])
                     ->map(fn (array $managerData) => OracleManager::fromArray($managerData))
+                    ->all()
+                : null,
+            allReports: array_key_exists('allReports', $data)
+                ? collect($data['allReports'])
+                    ->map(fn (array $reportData) => OracleAssignmentReport::fromArray($reportData))
+                    ->all()
                 : null,
         );
     }
