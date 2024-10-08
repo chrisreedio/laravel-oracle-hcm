@@ -31,7 +31,7 @@ readonly class OracleManager extends OracleData
             end_date: $data['EffectiveEndDate'],
             manager_id: $data['AssignmentSupervisorId'],
             type: $data['ManagerType'],
-            type_meaning: $data['ManagerTypeMeaning'],
+            type_meaning: $data['ManagerTypeMeaning'] ?? null,
             reason_code: $data['ReasonCode'],
             created_at: $data['CreationDate'],
         );
