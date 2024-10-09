@@ -43,4 +43,9 @@ readonly class EmployeeFeed extends BaseFeedResource
     {
         return $this->sendRequest(EmployeeFeedType::UpdateWorkRelationship->value);
     }
+
+    public function omni(EmployeeFeedType $feedType): PagedPaginator
+    {
+        return $this->sendRequest($feedType->value);
+    }
 }
