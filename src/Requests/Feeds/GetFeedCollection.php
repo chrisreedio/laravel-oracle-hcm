@@ -21,11 +21,11 @@ class GetFeedCollection extends Request implements Paginatable
 
     public function __construct(protected WorkspaceType $workspace, protected string $collection)
     {
-        // $workspaceName = $workspace->value;
+        // $myWorkspace = $workspace;
         // $curCollection = $collection;
         $this->middleware()
-            ->onRequest(static function (PendingRequest $request) use ($collection) {
-                $cacheKey = self::generateCacheKey($this->workspace, $collection);
+            ->onRequest(static function (PendingRequest $request) use ($workspace, $collection) {
+                $cacheKey = self::generateCacheKey($workspace, $collection);
                 $lastQueryTime = cache($cacheKey);
                 if ($lastQueryTime) {
                     $request->query()->add('updated-min', $lastQueryTime);
