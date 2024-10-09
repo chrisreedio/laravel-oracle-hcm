@@ -14,13 +14,33 @@ readonly class EmployeeFeed extends BaseFeedResource
         parent::__construct($connector, WorkspaceType::Employee);
     }
 
+    public function hires(): PagedPaginator
+    {
+        return $this->sendRequest(EmployeeFeedType::Hires->value);
+    }
+
+    public function assignments(): PagedPaginator
+    {
+        return $this->sendRequest(EmployeeFeedType::Assignment->value);
+    }
+
     public function updates(): PagedPaginator
     {
         return $this->sendRequest(EmployeeFeedType::Updates->value);
     }
 
-    public function hires(): PagedPaginator
+    public function terminations(): PagedPaginator
     {
-        return $this->sendRequest(EmployeeFeedType::Hires->value);
+        return $this->sendRequest(EmployeeFeedType::Termination->value);
+    }
+
+    public function workrelationshipCancellations(): PagedPaginator
+    {
+        return $this->sendRequest(EmployeeFeedType::CancelWorkRelationship->value);
+    }
+
+    public function workrelationshipUpdates(): PagedPaginator
+    {
+        return $this->sendRequest(EmployeeFeedType::UpdateWorkRelationship->value);
     }
 }
