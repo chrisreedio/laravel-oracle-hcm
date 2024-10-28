@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-oracle-hcm` will be documented in this file.
 
+## v1.0.0-beta.10 - 2024-10-28
+
+### What's Changed
+
+* ✨ feat: added `known_as` property to `OraclePersonName` class by @chrisreedio in https://github.com/chrisreedio/laravel-oracle-hcm/pull/2
+
+**Full Changelog**: https://github.com/chrisreedio/laravel-oracle-hcm/compare/v1.0.0-beta.9...v1.0.0-beta.10
+
 ## v1.0.0-beta.9 - 2024-10-09
 
 **Full Changelog**: https://github.com/chrisreedio/laravel-oracle-hcm/compare/v1.0.0-beta.7...v1.0.0-beta.9
