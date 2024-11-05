@@ -17,7 +17,8 @@ class GetWorker extends Request implements Paginatable
 
     public function __construct(
         protected string $workerId,
-    ) {
+    )
+    {
         //
     }
 
@@ -44,9 +45,13 @@ class GetWorker extends Request implements Paginatable
         ];
     }
 
-    public function createDtoFromResponse(Response $response): OraclePerson
+    public function createDtoFromResponse(Response $response): ?OraclePerson
     {
         // dd($response->json('items')[0]);
+        if (empty($response->json('items'))) {
+            return null;
+        }
+
         return OraclePerson::fromArray($response->json('items')[0]);
     }
 }
