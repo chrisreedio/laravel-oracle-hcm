@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-oracle-hcm` will be documented in this file.
 
+## v1.0.0-beta.11 - 2024-11-05
+
+### What's Changed
+
+* ✨ feat: supported null return in `createDtoFromResponse` method by @chrisreedio in https://github.com/chrisreedio/laravel-oracle-hcm/pull/3
+
+**Full Changelog**: https://github.com/chrisreedio/laravel-oracle-hcm/compare/v1.0.0-beta.10...v1.0.0-beta.11
+
 ## v1.0.0-beta.10 - 2024-10-28
 
 ### What's Changed
