@@ -20,7 +20,7 @@ class ListLocations extends Request implements Paginatable
      */
     public function resolveEndpoint(): string
     {
-        return '/locationsLov';
+        return '/locations';
     }
 
     public function createDtoFromResponse(Response $response): array
