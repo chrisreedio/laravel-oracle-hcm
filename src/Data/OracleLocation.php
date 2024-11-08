@@ -46,4 +46,16 @@ readonly class OracleLocation extends OracleData
             description: $data['Description'] ?? null,
         );
     }
+
+    public function generateFullAddress(): string
+    {
+        $address = $this->street ?? '';
+        $address .= $this->suite ? ' '.$this->suite : '';
+        $address .= $this->city ? ', '.$this->city : '';
+        $address .= $this->county ? ', '.$this->county : '';
+        $address .= $this->state ? ', '.$this->state : '';
+        $address .= $this->zip ? ' '.$this->zip : '';
+
+        return $address;
+    }
 }
