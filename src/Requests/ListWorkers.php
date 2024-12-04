@@ -3,10 +3,14 @@
 namespace ChrisReedIO\OracleHCM\Requests;
 
 use ChrisReedIO\OracleHCM\Data\OraclePerson;
+use Illuminate\Support\Facades\Log;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
+
+use function array_map;
+use function report;
 
 class ListWorkers extends Request implements Paginatable
 {
@@ -17,7 +21,8 @@ class ListWorkers extends Request implements Paginatable
 
     public function __construct(
         protected ?string $workerId = null,
-    ) {
+    )
+    {
         //
     }
 
@@ -50,6 +55,20 @@ class ListWorkers extends Request implements Paginatable
 
     public function createDtoFromResponse(Response $response): array
     {
-        return array_map(fn ($item) => OraclePerson::fromArray($item), $response->json('items'));
+        try {
+            $workerItems = $response->json('items');
+
+            return array_map(fn ($item) => OraclePerson::fromArray($item), $workerItems);
+        } catch (\Exception $e) {
+            Log::critical('Failed to create DTO from response.', [
+                'exception' => $e->getMessage(),
+                'response' => $response->body(),
+                // 'trace' => $e->getTraceAsString(),
+            ]);
+            report($e);
+
+            // throw new \Exception('Failed to create DTO from response.', 0, $e);
+            return [];
+        }
     }
 }
