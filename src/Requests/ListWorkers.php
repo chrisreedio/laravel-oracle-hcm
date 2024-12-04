@@ -23,8 +23,7 @@ class ListWorkers extends Request implements Paginatable
 
     public function __construct(
         protected ?string $workerId = null,
-    )
-    {
+    ) {
         //
     }
 

@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-oracle-hcm` will be documented in this file.
 
+## v1.0.0-beta.15 - 2024-12-04
+
+**Full Changelog**: https://github.com/chrisreedio/laravel-oracle-hcm/compare/v1.0.0-beta.14...v1.0.0-beta.15
+
 ## v1.0.0-beta.14 - 2024-11-25
 
 **Full Changelog**: https://github.com/chrisreedio/laravel-oracle-hcm/compare/v1.0.0-beta.13...v1.0.0-beta.14
