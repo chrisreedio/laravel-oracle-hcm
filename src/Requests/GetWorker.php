@@ -8,6 +8,8 @@ use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
 
+use function implode;
+
 class GetWorker extends Request implements Paginatable
 {
     /**
@@ -17,7 +19,8 @@ class GetWorker extends Request implements Paginatable
 
     public function __construct(
         protected string $workerId,
-    ) {
+    )
+    {
         //
     }
 
@@ -38,8 +41,17 @@ class GetWorker extends Request implements Paginatable
             // 'expand' => 'all',
             // 'limit' => 200,
             // 'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments.managers',
-            'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments.managers,workRelationships.assignments.allReports',
+            // 'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments.managers,workRelationships.assignments.allReports',
             // 'expand' => 'addresses,emails,legislativeInfo,names,phones,workRelationships.assignments,photos',
+            'expand' => implode(',', [
+                'addresses',
+                'emails',
+                'legislativeInfo',
+                'names',
+                'phones',
+                'workRelationships.assignments.managers',
+                'workRelationships.assignments.allReports',
+            ]),
             'q' => 'PersonId='.$this->workerId,
         ];
     }
