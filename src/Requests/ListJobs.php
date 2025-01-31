@@ -3,7 +3,6 @@
 namespace ChrisReedIO\OracleHCM\Requests;
 
 use ChrisReedIO\OracleHCM\Data\OracleJob;
-use ChrisReedIO\OracleHCM\Data\OracleJobFamily;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;

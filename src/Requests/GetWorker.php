@@ -19,8 +19,7 @@ class GetWorker extends Request implements Paginatable
 
     public function __construct(
         protected string $workerId,
-    )
-    {
+    ) {
         //
     }
 

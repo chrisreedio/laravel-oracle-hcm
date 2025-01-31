@@ -40,7 +40,6 @@ readonly class OracleJob extends OracleData
             $endDate = null;
         }
 
-
         return new OracleJob(
             oracle_id: $data['JobId'] ?? null,
             code: $data['JobCode'],
