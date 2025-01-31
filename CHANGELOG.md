@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-oracle-hcm` will be documented in this file.
 
+## v1.0.0-beta.17 - 2025-01-31
+
+### What's Changed
+
+* build(deps): bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/chrisreedio/laravel-oracle-hcm/pull/4
+* ✨ feat: added job listing and data structures for Oracle HCM by @chrisreedio in https://github.com/chrisreedio/laravel-oracle-hcm/pull/5
+
+### New Contributors
+
+* @dependabot made their first contribution in https://github.com/chrisreedio/laravel-oracle-hcm/pull/4
+
+**Full Changelog**: https://github.com/chrisreedio/laravel-oracle-hcm/compare/v1.0.0-beta.16...v1.0.0-beta.17
+
 ## v1.0.0-beta.15 - 2024-12-04
 
 **Full Changelog**: https://github.com/chrisreedio/laravel-oracle-hcm/compare/v1.0.0-beta.14...v1.0.0-beta.15
